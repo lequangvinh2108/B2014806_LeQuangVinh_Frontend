@@ -36,7 +36,7 @@
                 <ContactCard :contact="activeContact" />
                 <router-link
                     :to="{
-                        name: 'contact.add',
+                        name: 'contact.edit',
                         params: { id: activeContact._id },
                     }"
                 >
