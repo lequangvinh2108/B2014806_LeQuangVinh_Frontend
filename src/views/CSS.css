@@ -1,0 +1,220 @@
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    width: 90%;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.date,
+.search1 {
+    color: blue;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tc {
+    margin-right: 30px;
+}
+
+.tt {
+    margin-right: 0px;
+}
+
+
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    /* Tạo thanh cuộn ngang */
+    border: 1px solid #ddd;
+    /* Viền bảng */
+    white-space: nowrap;
+    /* Không cho xuống dòng trong bảng */
+}
+
+table {
+    width: max-content;
+    /* Đảm bảo bảng rộng theo nội dung */
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Khoảng cách giữa các phần tử */
+    flex-wrap: wrap;
+    /* Đảm bảo không bị tràn trên màn hình nhỏ */
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 150px;
+}
+
+input[type="file"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+}
+
+/* .row {
+            display: flex;
+            justify-content: space-between; 
+        }
+
+        .col {
+            flex: 1; 
+            padding: 10px; 
+        } */
+
+/* Căn chỉnh các input cho đều nhau */
+input.form-control {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    /* Khoảng cách giữa các input */
+}
+
+/* Đảm bảo các cột có chiều rộng bằng nhau */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.col {
+    /* flex: 1;  */
+    padding: 10px;
+}
+
+/* Căn chỉnh trường Địa chỉ TT cho rộng hơn */
+.col-md-8 {
+    width: 73.5%;
+}
+
+.row p:first-child {
+    margin-top: 0;
+    /* Bỏ khoảng cách đầu */
+}
+
+.row p:last-child {
+    margin-bottom: 0;
+    /* Bỏ khoảng cách cuối */
+}
+
+
+
+.custom-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Khoảng cách giữa các phần tử */
+    flex-wrap: wrap;
+    /* Đảm bảo không bị tràn khi màn hình nhỏ */
+}
+
+.custom-row label {
+    font-weight: bold;
+    /* In đậm tiêu đề */
+}
+
+.custom-row input[type="text"],
+.custom-row select {
+    width: 200px;
+    /* Độ rộng cố định cho input và select */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.custom-row input[type="checkbox"] {
+    transform: scale(1.2);
+    /* Tăng kích thước checkbox */
+    margin-left: 5px;
+}
+
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    /* Đưa nội dung sát bên phải */
+    gap: 15px;
+    /* Tạo khoảng cách giữa các checkbox */
+    text-align: right;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* Khoảng cách giữa label và checkbox */
+    flex-direction: row-reverse;
+    /* Đưa checkbox về bên phải của nhãn */
+}
+
+.table-picture {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.table-picture td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.col-md-10 {
+    width: 83.33%;
+}
+
+.col-md-2 {
+    width: 16.66%;
+}
+
+.button-dulieu {
+    border: 1px solid #ccc;
+    padding: 10px;
+}

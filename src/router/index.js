@@ -1,31 +1,49 @@
 import { createWebHistory, createRouter } from "vue-router";
-import ContactBook from "@/views/ContactBook.vue";
+import Login from "../components/Login.vue";
+import Home from "../views/Home.vue";
+import DKKHCN from "../views/DKKHCN.vue";
+import Register from "../components/Register.vue";
+import Edit from "../components/Edit.vue";
+import UserList from "../components/UserList.vue";
 
-const routes = [{
-        path: "/",
-        name: "contactbook",
-        component: ContactBook,
+const routes = [
+    {
+        path: "/userlist",
+        name: "userlist",
+        component: UserList,
+    },
+    {
+        path: "/edit/:id",
+        name: "edit",
+        component: Edit,
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: Login,
+    },
+    {
+        path: "/dkkhcn",
+        name: "dkkhcn",
+        component: DKKHCN,
+    },
+    {
+        path: "/register",
+        name: "register",
+        component: Register,
+    },
+    {
+        path: "/home",
+        name: "home",
+        component: Home,
     },
     {
         path: "/:pathMatch(.*)*",
         name: "notfound",
         component: () =>
-            import ("@/views/NotFound.vue"),
+            import ("../views/NotFound.vue"),
     },
-    {
-        path: "/contacts/:id",
-        name: "contact.edit",
-        component: () =>
-            import ("@/views/ContactEdit.vue"),
-        props: true
-    },
-    {
-        path: "/contacts/add",
-        name: "contact.add",
-        component: () =>
-            import ("@/views/ContactAdd.vue"),
-        props: true
-    },
+    
 ];
 
 const router = createRouter({
