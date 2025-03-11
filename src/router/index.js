@@ -5,8 +5,14 @@ import DKKHCN from "../views/DKKHCN.vue";
 import Register from "../components/Register.vue";
 import Edit from "../components/Edit.vue";
 import UserList from "../components/UserList.vue";
+import Notifications from "../components/Notifications.vue";
 
 const routes = [
+    {
+        path: "/notifications",
+        name: "notifications",
+        component: Notifications,
+    },
     {
         path: "/userlist",
         name: "userlist",

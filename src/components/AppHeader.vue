@@ -8,6 +8,8 @@
                 <router-link to="/home" class="navbar-brand">Home</router-link>
                 <router-link to="/dkkhcn" class="navbar-brand">DKKHCN</router-link>
                 <router-link to="/userlist" class="navbar-brand">UserList</router-link>
+                <router-link to="/notifications" class="navbar-brand">Notifications</router-link>
+
             </li>
         </div>
     </nav>

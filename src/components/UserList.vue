@@ -118,11 +118,6 @@ export default {
             }
         },
 
-        
-        // editUser(user) {
-        //     this.$router.push({ name: "edit", params: { user } });
-        // },
-
         async deleteUser(id) {
             if (confirm("Bạn có chắc chắn muốn xóa người dùng này?")) {
                 try {
@@ -177,6 +172,9 @@ body {
     background: url('../../img/agribank.jpg') no-repeat center center fixed;
     background-size: cover;
 }
+
+
+
 
 button.edit{
     background-color: rgb(24, 56, 238);
