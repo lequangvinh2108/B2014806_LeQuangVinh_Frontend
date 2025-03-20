@@ -102,7 +102,7 @@
              <div class="button-group">
                 <!-- <input type="submit" value="Đăng Ký" class="form-submit" /> -->
                 <button @click="registerUser" class="form-submit" type="submit" value="Đăng Ký">Đăng Ký</button>
-                <button type="button" class="form-submit" @click="exit" style="margin-top: 10px;">Thoát</button>
+                <button type="button" class="form-submit" @click="exit" style="">Thoát</button>
             </div>
 
 
@@ -236,7 +236,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 25%;
+    /* margin-left: 25%; */
 }
 
 #form-login {

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="full">
         <h2 class="text-2xl font-bold mb-4">Danh sách người dùng</h2>
         <!-- Dropdown lọc -->
         <!-- Thanh chứa nút thêm và dropdown -->
@@ -57,13 +57,11 @@
                     <td class="border border-gray-300 p-2">{{ user.usage_rights }}</td>
                     <td class="border border-gray-300 p-2">{{ user.validity_of_use }}</td>
                     <td class="border border-gray-300 p-2">{{ user.authority }}</td>
-                    <td class="border border-gray-300 p-2">
-                        <!-- <button class="edit text-white px-3 py-1 rounded mr-2" @click="editUser(user._id)">Sửa</button> -->
-                        <button class="edit text-white px-3 py-1 rounded mr-2" 
+                    <td class="border border-gray-300 p-2 action-buttons">
+                        <button class="edit text-white px-3 py-1 rounded" 
                             @click="$router.push({ name: 'edit', params: { id: user._id } })">
                             Sửa
                         </button>
-
                         <button class="delete text-white px-3 py-1 rounded" @click="deleteUser(user._id)">Xóa</button>
                     </td>
                 </tr>
@@ -138,18 +136,27 @@ export default {
                 this.filteredUsers = this.users;
             }
         },
+        getLoggedInUser() {
+            const userData = localStorage.getItem("user");
+            if (userData) {
+                this.loggedInUser = JSON.parse(userData);
+                console.log("Người dùng đăng nhập:", this.loggedInUser);
+            }
+        },
     },
     mounted() {
         this.fetchUsers();
+        this.getLoggedInUser();
     },
 };
 </script>
 
 <style >
-.container {
-    max-width: 1000px;
-    margin-left: 0px;
-
+.full {
+    font-size: small;
+}
+table {
+    width: 100%;
 }
 
 h2 {
@@ -158,7 +165,6 @@ h2 {
 }
 
 .bg-custom {
-    /* background: url('../../img/agribank.jpg') no-repeat center center fixed; */
     background-size: cover;
     background-color: aliceblue;
     
@@ -174,6 +180,12 @@ body {
 }
 
 
+.action-buttons {
+    display: flex;
+    justify-content: center; /* Canh giữa */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa hai nút */
+}
 
 
 button.edit{

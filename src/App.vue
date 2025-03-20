@@ -11,7 +11,7 @@ export default {
         const route = useRoute();
 
         // Kiểm tra nếu đường dẫn hiện tại là trang login ("/login")
-        const isLoginPage = computed(() => route.path === "/login");
+        const isLoginPage = computed(() => route.path === "/");
 
         return { isLoginPage };
     },
@@ -21,8 +21,8 @@ export default {
 <template>
     <div id="app">
         <!-- Chỉ hiển thị AppHeader nếu không phải trang login -->
-        <!-- <AppHeader v-if="!isLoginPage" /> -->
-        <AppHeader />
+        <AppHeader v-if="!isLoginPage" />
+        <!-- <AppHeader /> -->
 
         <div class="container mt-3">
             <router-view />

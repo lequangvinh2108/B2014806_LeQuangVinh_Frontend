@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { RouterLink } from "vue-router";
 import UserService from "../services/users.service";
 
 export default {
@@ -47,9 +46,10 @@ export default {
         async login() {
             try {
                 const response = await UserService.login(this.username, this.password);
-
                 if (response.message === "Login successful") {
-                    this.$router.push("/home"); // Chuyển đến trang Home nếu đăng nhập thành công
+                    localStorage.setItem("user", JSON.stringify(response.user)); // Lưu user vào localStorage
+                    this.$router.push("/home");
+                    console.log ("user: ", response.user);
                 } else {
                     this.errorMessage = "Tên đăng nhập hoặc mật khẩu không đúng!";
                 }
@@ -61,7 +61,6 @@ export default {
     },
 };
 </script>
-
 
 <style scoped>
 #wrapper {

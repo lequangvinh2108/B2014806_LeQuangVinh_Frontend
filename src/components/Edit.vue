@@ -85,7 +85,7 @@
 
             <div class="button-group">
                 <button class="form-submit" type="submit">Cập Nhật</button>
-                <button type="button" class="form-submit" @click="exit" style="margin-top: 10px;">Thoát</button>
+                <button type="button" class="form-submit" @click="exit" style=" ">Thoát</button>
             </div>
 
             <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
@@ -271,7 +271,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 25%;
+    /* margin-left: 25%; */
 }
 
 #form-edit {

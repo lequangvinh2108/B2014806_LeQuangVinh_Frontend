@@ -106,9 +106,20 @@ export default {
       noiDungThongBao: "",
       danhSachThongBao: [],
       thongBaoDuocChon: null,
+
+      loggedInUser: null, // Thông tin người dùng đăng nhập
     };
   },
   methods: {
+    getLoggedInUser() {
+            const userData = localStorage.getItem("user");
+            if (userData) {
+                this.loggedInUser = JSON.parse(userData);
+                console.log("Người dùng đăng nhập:", this.loggedInUser);
+            }
+        },
+
+
     async loadDanhSachThongBao() {
       try {
         this.danhSachThongBao = await NotificationsService.getAll();
@@ -228,6 +239,7 @@ export default {
 
   mounted() {
     this.loadDanhSachThongBao();
+    this.getLoggedInUser();
   },
 };
 

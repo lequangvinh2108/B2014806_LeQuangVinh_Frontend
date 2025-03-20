@@ -1,13 +1,10 @@
 <template>
     <div class="home-container">
         <h1> 
-            Chào mừng đến với Agribank<span class="agribank-text" style="color: green;"></span>
-            <h2>
-                Chương trình quản lý thẻ
-            </h2>
+            Chào mừng, {{ userData?.user || 'Người dùng' }} đến với Agribank
+            <h2>Chương trình quản lý thẻ</h2>
         </h1>
         <canvas ref="fireworksCanvas"></canvas>
-        
     </div>
 </template>
 
@@ -15,9 +12,24 @@
 import { Fireworks } from 'fireworks-js';
 
 export default {
+    data() {
+        return {
+            userData: null // Lưu thông tin người dùng
+        };
+    },
     mounted() {
+        // Lấy thông tin user từ localStorage
+        const user = localStorage.getItem("user");
+        if (user) {
+            this.userData = JSON.parse(user);
+            console.log("this.userData: ", this.userData);
+        } else {
+            // Chưa đăng nhập, chuyển về trang đăng nhập
+            window.location.href = "/";
+        }
+
         // Xóa mọi ảnh nền cũ khi vào Home
-        document.body.style.background = "url('../../img/agribank-4.jpg') no-repeat center center fixed";;
+        document.body.style.background = "url('../../img/agribank.jpg') no-repeat center center fixed";
         document.body.style.backgroundSize = "cover";
         
         // Khởi tạo pháo hoa
@@ -35,16 +47,17 @@ export default {
         });
 
         fireworks.start();
-    }
+    },
+    
 };
 </script>
 
 <style scoped>
 .home-container {
-    /* background-color: red; */
-    color: yellow;
+    color:yellow;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -65,5 +78,23 @@ canvas {
     width: 100%;
     height: 100%;
     z-index: 1;
+}
+
+/* Nút đăng xuất */
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-button:hover {
+    background: darkred;
 }
 </style>

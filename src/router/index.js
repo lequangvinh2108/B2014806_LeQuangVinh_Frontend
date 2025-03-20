@@ -6,8 +6,21 @@ import Register from "../components/Register.vue";
 import Edit from "../components/Edit.vue";
 import UserList from "../components/UserList.vue";
 import Notifications from "../components/Notifications.vue";
+import Thongke from "../views/ThongKeHS_KH.vue";
+import UpdateCardDate from "../views/UpdateCardDate.vue";
+
 
 const routes = [
+    {
+        path: "/updatecarddate",
+        name: "updatecarddate",
+        component: UpdateCardDate,
+    },
+    {
+        path: "/thongke",
+        name: "thongke",
+        component: Thongke,
+    },
     {
         path: "/notifications",
         name: "notifications",
@@ -24,7 +37,7 @@ const routes = [
         component: Edit,
     },
     {
-        path: "/login",
+        path: "/",
         name: "login",
         component: Login,
     },
