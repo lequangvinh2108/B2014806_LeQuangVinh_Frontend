@@ -63,7 +63,7 @@
                 <input type="text" class="form-input" v-model="authority" placeholder="Quyết định/Giấy ủy quyền số" />
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <i class="fas fa-calendar-alt"></i>
                 <select class="form-input" v-model="validity_of_use">
                     <option value="">Chọn hiệu lực sử dụng</option>
@@ -81,7 +81,7 @@
                     <option value="all">Tất cả</option>
                     <option value="baocao">Báo cáo</option>
                 </select>
-            </div>
+            </div> -->
 
             <div class="button-group">
                 <button class="form-submit" type="submit">Cập Nhật</button>
@@ -132,7 +132,7 @@ export default {
                 "PGD Sóc Sơn - Mỹ Lâm"
             ],
             functionList: [
-                "Đại diện ngân hàng",
+                //"Đại diện ngân hàng",
                 "Phê duyệt",
                 "Giao dịch viên",
                 "Giám đốc",
@@ -141,7 +141,7 @@ export default {
                 "Phó phòng",
                 "Cán bộ"
             ],
-            usageRightsList: ["admin", "manager", "user", "quanlybaocao"],
+            usageRightsList: ["admin", "user"], // "manager", "quanlybaocao"
 
             // Mapping đơn vị với Madonvi và MaCN
             unitMapping: {

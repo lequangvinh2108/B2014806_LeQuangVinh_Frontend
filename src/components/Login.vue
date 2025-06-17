@@ -32,13 +32,6 @@ export default {
             errorMessage: "",
         };
     },
-    mounted() {
-        document.body.style.background = "url('../../img/agribank.jpg') no-repeat center center fixed";
-        document.body.style.backgroundSize = "cover";
-    },
-    unmounted() {
-        document.body.style.background = "";
-    },
     methods: {
         togglePassword() {
             this.showPassword = !this.showPassword;
@@ -47,9 +40,9 @@ export default {
             try {
                 const response = await UserService.login(this.username, this.password);
                 if (response.message === "Login successful") {
-                    localStorage.setItem("user", JSON.stringify(response.user)); // Lưu user vào localStorage
+                    localStorage.setItem("user", JSON.stringify(response.user));
                     this.$router.push("/home");
-                    console.log ("user: ", response.user);
+                    console.log("user: ", response.user);
                 } else {
                     this.errorMessage = "Tên đăng nhập hoặc mật khẩu không đúng!";
                 }
@@ -62,12 +55,21 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+/* Toàn bộ màn hình với nền azure */
+html, body, #app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: azure;
+}
+
 #wrapper {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #form-login {

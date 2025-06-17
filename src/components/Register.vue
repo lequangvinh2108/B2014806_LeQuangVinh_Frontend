@@ -75,7 +75,7 @@
                 <i v-if="authority" class="fas fa-check-circle success-icon"></i>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <i class="fas fa-calendar-alt"></i>
                 <select class="form-input" v-model="validity_of_use">
                     <option value="">Chọn hiệu lực sử dụng</option>
@@ -95,7 +95,7 @@
                     <option value="baocao">Báo cáo</option>
                 </select>
                 <i v-if="menu" class="fas fa-check-circle success-icon"></i>
-            </div>
+            </div> -->
 
 
             <!-- <input type="submit" value="Đăng Ký" class="form-submit" /> -->
@@ -133,7 +133,7 @@ export default {
             unitList: ["Tỉnh Kiên Giang", "Kiên Giang - PGD 01", "Huyện Kiên Lương", "Huyện Hòn Đất", "Huyện Kiên Hải", "PGD Bình An - Kiên Hải", "Huyện Hà Tiên", "PGD Giang Thành - Hà Tiên", "Huyện Ba Hòn", "Huyện Rạch Sỏi", "PGD Mong Thọ - Rạch Sỏi", "TP Rạch Giá", "PGD 02 - TP Rạch Giá", "Mỹ Lâm", "PGD Sóc Sơn - Mỹ Lâm"], // Danh sách đơn vị
             function_1: "",
             functionList: [
-                "Đại diện ngân hàng",
+                // "Đại diện ngân hàng",
                 "Phê duyệt",
                 "Giao dịch viên",
                 "Giám đốc",
@@ -143,7 +143,7 @@ export default {
                 "Cán bộ"
             ],
             usage_rights: "", // Giá trị mặc định rỗng
-            usageRightsList: ["admin", "manager", "user", "quanlybaocao"],
+            usageRightsList: ["admin", "user"], // "manager", "quanlybaocao"
 
             
         };

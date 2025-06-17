@@ -29,8 +29,8 @@ export default {
         }
 
         // Xóa mọi ảnh nền cũ khi vào Home
-        document.body.style.background = "url('../../img/agribank.jpg') no-repeat center center fixed";
-        document.body.style.backgroundSize = "cover";
+        // document.body.style.background = "url('../../img/agribank.jpg') no-repeat center center fixed";
+        // document.body.style.backgroundSize = "cover";
         
         // Khởi tạo pháo hoa
         const container = this.$refs.fireworksCanvas;

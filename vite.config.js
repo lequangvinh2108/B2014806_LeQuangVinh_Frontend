@@ -14,7 +14,7 @@ export default defineConfig({
         port: 3001,       // Chạy trên port 3001
         proxy: {
             "/api": {
-                target: "http://10.143.0.187:3000/", 
+                target: "http://10.143.0.189:3000/", 
                 changeOrigin: true,
             },
         }
