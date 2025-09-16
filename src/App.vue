@@ -12,7 +12,10 @@ export default {
 
     // Ẩn AppHeader nếu là trang login hoặc homeleaveofabsence
     const isLoginPage = computed(
-      () => route.path === "/" || route.path === "/homeleaveofabsence"
+      () =>
+        route.path === "/" ||
+        route.path === "/homeleaveofabsence" ||
+        route.path === "/trangchuHTQLN"
     );
 
     return { isLoginPage };

@@ -15,8 +15,26 @@ import edit_leaveofabsence from "../views/edit_leaveofabsence.vue";
 import vongquay from "../views/vongquay.vue";
 import UpdatePassword from "../components/UpdatePassword.vue";
 import create_users from "../components/create_users.vue";
+import trangchuHTQLN from "../HTQLN/trangchuHTQLN.vue";
+import xuatfile from "../HTQLN/xuatfile.vue";
+// import XFBC from "../HTQLN/XFBC.vue";
 
 const routes = [
+  // {
+  //   path: "/XFBC",
+  //   name: "XFBC",
+  //   component: XFBC,
+  // },
+  {
+    path: "/xuatfile",
+    name: "xuatfile",
+    component: xuatfile,
+  },
+  {
+    path: "/trangchuHTQLN",
+    name: "trangchuHTQLN",
+    component: trangchuHTQLN,
+  },
   {
     path: "/createusers",
     name: "createusers",

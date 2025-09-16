@@ -344,14 +344,31 @@
                 v-model="selectedCustomer.tongiao"
               />
             </p>
-            <p>
+            <!-- <p>
               <b>Nơi cấp:</b>
               <input
                 class="form-control"
                 id="Noicap"
                 v-model="selectedCustomer.noicap"
               />
+            </p> -->
+            <p>
+              <b>Nơi cấp:</b>
+              <input
+                class="form-control"
+                id="Noicap"
+                list="noicapOptions"
+                v-model="selectedCustomer.noicap"
+              />
+              <datalist id="noicapOptions">
+                <option
+                  v-for="(label, code) in ListNgayHethanHLCCCD"
+                  :key="code"
+                  :value="label"
+                />
+              </datalist>
             </p>
+
             <p>
               <b>Email:</b>
               <input
@@ -516,61 +533,106 @@
           ><input style="margin-left: 5px" type="checkbox" id="thekhac" />
         </div>
       </div>
+      <!-- Hạng thẻ -->
       <div class="row" style="margin-top: 10px; font-size: 100%">
         <div class="col-md-2" style="color: blue"><b>Hạng thẻ:</b></div>
         <div class="col-md-10">
-          <label for="theplussuccess">Plus Success</label
-          ><input
-            style="margin-left: 5px"
-            type="checkbox"
-            id="theplussuccess"
-          />
-          <label for="thesuccess" style="margin-left: 20px"> Success</label
-          ><input
-            style="margin-left: 5px"
-            type="checkbox"
-            id="thesuccess"
-            checked
-          />
-          <label for="thevang" style="margin-left: 20px"> Hạng vàng</label
-          ><input style="margin-left: 5px" type="checkbox" id="thevang" />
-          <label for="thechuan" style="margin-left: 20px"> Hạng chuẩn</label
-          ><input
-            style="margin-left: 5px"
-            type="checkbox"
-            id="thechuan"
-            checked
-          />
-          <label for="thebachkim" style="margin-left: 20px"> Bạch kim</label
-          ><input style="margin-left: 5px" type="checkbox" id="thebachkim" />
-          <label for="thekimcuong" style="margin-left: 20px"> Kim cương</label
-          ><input style="margin-left: 5px" type="checkbox" id="thekimcuong" />
+          <!-- <label
+            ><input
+              type="checkbox"
+              v-model="cardTypes.plusSuccess"
+              @change="handleCardTypeChange"
+            />
+            Plus Success</label
+          >
+          <label style="margin-left: 20px"
+            ><input
+              type="checkbox"
+              v-model="cardTypes.success"
+              @change="handleCardTypeChange"
+            />
+            Success</label
+          >
+          <label style="margin-left: 20px"
+            ><input type="checkbox" v-model="cardTypes.vang" /> Hạng vàng</label
+          >
+          <label style="margin-left: 20px"
+            ><input type="checkbox" v-model="cardTypes.chuan" /> Hạng
+            chuẩn</label
+          > -->
+          <label>
+            <input
+              type="checkbox"
+              v-model="cardTypes.plusSuccess"
+              @change="handlePlusSuccessChange"
+            />
+            Plus Success
+          </label>
+
+          <label style="margin-left: 20px">
+            <input
+              type="checkbox"
+              v-model="cardTypes.success"
+              @change="handleSuccessChange"
+            />
+            Success
+          </label>
+
+          <label style="margin-left: 20px">
+            <input type="checkbox" v-model="cardTypes.vang" /> Hạng vàng
+          </label>
+
+          <label style="margin-left: 20px">
+            <input type="checkbox" v-model="cardTypes.chuan" /> Hạng chuẩn
+          </label>
+
+          <label style="margin-left: 20px"
+            ><input type="checkbox" v-model="cardTypes.bachkim" /> Bạch
+            kim</label
+          >
+          <label style="margin-left: 20px"
+            ><input type="checkbox" v-model="cardTypes.kimcuong" /> Kim
+            cương</label
+          >
         </div>
       </div>
-      <!-- Dòng 2: Hình thức PH và các lựa chọn -->
+
+      <!-- Hình thức PH -->
       <div class="row" style="margin-top: 10px; font-size: 100%">
         <div class="col-md-2" style="color: blue"><b>Hình thức PH:</b></div>
         <div class="col-md-10">
-          <label for="thePHthuong"> Phát hành thường</label
-          ><input
-            style="margin-left: 5px"
-            type="checkbox"
-            id="thePHthuong"
-            checked
-          />
-          <label for="thePHnhanh" style="margin-left: 20px">
+          <label
+            ><input
+              type="checkbox"
+              v-model="ph.phthuong"
+              @change="handlePHLoaiChange('phthuong')"
+            />
+            Phát hành thường</label
+          >
+          <label style="margin-left: 20px"
+            ><input
+              type="checkbox"
+              v-model="ph.phnhanh"
+              @change="handlePHLoaiChange('phnhanh')"
+            />
             Phát hành nhanh</label
-          ><input style="margin-left: 5px" type="checkbox" id="thePHnhanh" />
-          <label for="PHlandau" style="margin-left: 20px">
+          >
+          <label style="margin-left: 20px"
+            ><input
+              type="checkbox"
+              v-model="ph.phlandau"
+              @change="handlePHDotChange('phlandau')"
+            />
             Phát hành lần đầu</label
-          ><input
-            style="margin-left: 5px"
-            type="checkbox"
-            id="PHlandau"
-            checked
-          />
-          <label for="PHlai" style="margin-left: 20px"> Phát hành lại</label
-          ><input style="margin-left: 5px" type="checkbox" id="PHlai" />
+          >
+          <label style="margin-left: 20px"
+            ><input
+              type="checkbox"
+              v-model="ph.phlai"
+              @change="handlePHDotChange('phlai')"
+            />
+            Phát hành lại</label
+          >
         </div>
       </div>
     </div>
@@ -823,6 +885,26 @@ import UsersService from "../services/users.service";
 export default {
   data() {
     return {
+      cardTypes: {
+        plusSuccess: false,
+        success: false,
+        vang: false,
+        chuan: false,
+      },
+      // cardTypes: {
+      //   plusSuccess: true,
+      //   success: false,
+      //   vang: true, // auto tick when plusSuccess
+      //   chuan: false, // auto tick when success
+      //   bachkim: false,
+      //   kimcuong: false,
+      // },
+      ph: {
+        phthuong: true,
+        phnhanh: false,
+        phlandau: true,
+        phlai: false,
+      },
       wordFiles: [],
       loggedInUser: null, // Thông tin người dùng đăng nhập
       branchMap: {
@@ -852,7 +934,7 @@ export default {
         33: "Lô C11 Số 38-39 đường 3/2 - TPRG - Kiên Giang",
         2: "166 Nguyễn trung Trực - TPRG - Kiên Giang",
         34: "105 QL80 Ấp Hưng Giang - Xã Mỹ Lâm - Hòn Đất - Kiên Giang",
-        45: "44 KP. Thị Tứ , TT.Sóc Sơn,H.Hòn Đất, T.Kiên Giang",
+        45: "459A QL 80, KP Thành Công, TT.Sóc Sơn,H.Hòn Đất, T.Kiên Giang",
       },
       madonviList: {
         7700: "Tỉnh Kiên Giang",
@@ -870,6 +952,11 @@ export default {
         4: "Bộ Công An",
         352: "Cục CS ĐKQL cư trú và DLQG về dân cư",
       },
+      // ListNgayHethanHLCCCD: {
+      //   318: "Cục cảnh sát quản lý Hành chính về TTXH",
+      //   4: "Bộ Công An",
+      //   352: "Cục CS ĐKQL cư trú và DLQG về dân cư",
+      // },
 
       fromDate: "",
       toDate: "",
@@ -887,13 +974,15 @@ export default {
         name: "", // Tên người dùng
         GUQ: "",
         giayquyquyen: "",
-        // ngaydk: this.formatToday(),
+        ngaydk: this.formatToday(),
+        noicap: "",
       }, // Khách hàng được chọn cuối cùng
       services: {
         dvTc: false, // DV tài chính
         dvTt: false, // DV thanh toán
         dvPtc: false, // DV phi tài chính
       },
+
       issueDate: "",
       expiryDate: "",
       searched: false,
@@ -965,6 +1054,55 @@ export default {
     },
   },
   methods: {
+    // handleCardTypeChange() {
+    //   this.cardTypes.vang = this.cardTypes.plusSuccess;
+    //   this.cardTypes.chuan = this.cardTypes.success;
+    // },
+    handlePlusSuccessChange() {
+      if (this.cardTypes.plusSuccess) {
+        // ✅ Tick Plus Success → chọn vàng, bỏ success & chuẩn
+        this.cardTypes.vang = true;
+        this.cardTypes.success = false;
+        this.cardTypes.chuan = false;
+      } else {
+        // ❌ Bỏ Plus Success → bỏ vàng, chọn success & chuẩn
+        this.cardTypes.vang = false;
+        this.cardTypes.success = true;
+        this.cardTypes.chuan = true;
+      }
+    },
+
+    handleSuccessChange() {
+      if (this.cardTypes.success) {
+        // ✅ Tick Success → chọn chuẩn, bỏ plus & vàng
+        this.cardTypes.chuan = true;
+        this.cardTypes.plusSuccess = false;
+        this.cardTypes.vang = false;
+      } else {
+        // ❌ Bỏ Success → bỏ chuẩn, chọn plus & vàng
+        this.cardTypes.chuan = false;
+        this.cardTypes.plusSuccess = true;
+        this.cardTypes.vang = true;
+      }
+    },
+
+    handlePHLoaiChange(selected) {
+      if (selected === "phthuong" && this.ph.phthuong) {
+        this.ph.phnhanh = false;
+      }
+      if (selected === "phnhanh" && this.ph.phnhanh) {
+        this.ph.phthuong = false;
+      }
+    },
+
+    handlePHDotChange(selected) {
+      if (selected === "phlandau" && this.ph.phlandau) {
+        this.ph.phlai = false;
+      }
+      if (selected === "phlai" && this.ph.phlai) {
+        this.ph.phlandau = false;
+      }
+    },
     formatToday() {
       const today = new Date();
       const yyyy = today.getFullYear();
@@ -1133,6 +1271,7 @@ export default {
             this.selectedCustomer.ngaydk ||
             new Date().toISOString().substring(0, 10);
 
+          // Ghi đè dữ liệu từ file Excel vào selectedCustomer
           this.selectedCustomer = {
             hoten: firstRow["nmloc"] || "",
             hotenenglish: firstRow["nm"] || "",
@@ -1308,27 +1447,27 @@ export default {
         if (user.Madonvi === 20) {
           diachiCN = "01 Hàm Nghi - TPRG - Kiên Giang";
           dtnghenghiep = "0297.863738";
-          sofaxNH = "3866873";
+          sofaxNH = "0297.387366";
         } else if (user.Madonvi === 24) {
           diachiCN = "Huyện Kiên Lương - Kiên Giang";
           dtnghenghiep = "0297.853016";
-          sofaxNH = "3853120";
+          sofaxNH = "0297.385312";
         } else if (user.Madonvi === 1) {
           diachiCN = "234 Trần Phú, Rạch Giá, Kiên Giang";
           dtnghenghiep = "0297.875243";
-          sofaxNH = "3680077";
+          sofaxNH = "0297.3863158";
         } else if (user.Madonvi === 27) {
           diachiCN = "Huyện Hòn Đất";
           dtnghenghiep = "0297.841017";
-          sofaxNH = "3841553";
+          sofaxNH = "0297.3841553";
         } else if (user.Madonvi === 28) {
           diachiCN = "Huyện Kiên Hải";
           dtnghenghiep = "0297.830008";
-          sofaxNH = "3830135";
+          sofaxNH = "0297.3830135";
         } else if (user.Madonvi === 36) {
           diachiCN = "Hà Tiên";
           dtnghenghiep = "0297.851888";
-          sofaxNH = "3950995";
+          sofaxNH = "0297.3950995";
         }
         //
         else if (user.Madonvi === 37) {
@@ -1338,7 +1477,7 @@ export default {
         } else if (user.Madonvi === 40) {
           diachiCN = "Ba Hòn";
           dtnghenghiep = "0297.751177";
-          sofaxNH = "3751188";
+          sofaxNH = "0297.3751188";
         }
         //
         else if (user.Madonvi === 29) {
@@ -1348,28 +1487,28 @@ export default {
         } else if (user.Madonvi === 32) {
           diachiCN = "Rạch Sỏi";
           dtnghenghiep = "0297.864063";
-          sofaxNH = "3917898";
+          sofaxNH = "0297.3917898";
         } else if (user.Madonvi === 42) {
           diachiCN = "Mong Thọ - Rạch Sỏi";
           dtnghenghiep = "0297.625256";
-          sofaxNH = "";
+          sofaxNH = "0297.3625256";
         } else if (user.Madonvi === 33) {
           diachiCN = "Lô C11 Số 38-39 đường 3/2 - TPRG - Kiên Giang";
           dtnghenghiep = "0297.876155";
-          sofaxNH = "3923385";
+          sofaxNH = "0297.3923385";
         } else if (user.Madonvi === 2) {
           diachiCN = "166 Nguyễn trung Trực - TPRG - Kiên Giang";
           dtnghenghiep = "0297.863136";
-          sofaxNH = "3863136";
+          sofaxNH = "0297.3863136";
         } else if (user.Madonvi === 34) {
           diachiCN =
             "105 QL80 Ấp Hưng Giang - Xã Mỹ Lâm - Hòn Đất - Kiên Giang";
           dtnghenghiep = "0297.890228";
-          sofaxNH = "3891654";
+          sofaxNH = "0297.3891654";
         } else if (user.Madonvi === 45) {
           diachiCN = "44 KP. Thị Tứ , TT.Sóc Sơn,H.Hòn Đất, T.Kiên Giang";
           dtnghenghiep = "0297.742154";
-          sofaxNH = "";
+          sofaxNH = "0297.3742155";
         }
 
         // 2️⃣ Lấy ngày tháng năm hiện tại
@@ -1429,7 +1568,7 @@ export default {
           // tenta: getValueOrNull("tenta"),
           tentattv: getValueOrNull("shrtnmloc"),
           tentatta: getValueOrNull("shrtnm"),
-          ngaysinh: this.formatDateDDMMYYYY(getValueOrNull("name_1")),
+          ngaysinh: this.formatDate(getValueOrNull("name_1")),
           noisinh: getValueOrNull("noisinh"),
           gioitinh: getValueOrNull("name_3"),
           quoctich: getValueOrNull("Quoctich"),
@@ -1438,7 +1577,7 @@ export default {
           cmnd: getValueOrNull("regno"),
           ngaycap: this.formatDate(getValueOrNull("issuedt1")),
           noicap: getValueOrNull("Noicap"),
-          NgayHethanHL: getValueOrNull("NgayHethanHL"),
+          NgayHethanHL: this.formatDateDDMMYYYY(getValueOrNull("NgayHethanHL")),
           cutru: this.updateResident() || null,
           diachitt: getValueOrNull("addr1"),
           dcnharieng: getValueOrNull("dclh"),
@@ -1599,27 +1738,27 @@ export default {
         if (user.Madonvi === 20) {
           diachiCN = "01 Hàm Nghi - TPRG - Kiên Giang";
           dtnghenghiep = "0297.863738";
-          sofaxNH = "3866873";
+          sofaxNH = "0297.387366";
         } else if (user.Madonvi === 24) {
           diachiCN = "Huyện Kiên Lương - Kiên Giang";
           dtnghenghiep = "0297.853016";
-          sofaxNH = "3853120";
+          sofaxNH = "0297.385312";
         } else if (user.Madonvi === 1) {
           diachiCN = "234 Trần Phú, Rạch Giá, Kiên Giang";
           dtnghenghiep = "0297.875243";
-          sofaxNH = "3680077";
+          sofaxNH = "0297.3863158";
         } else if (user.Madonvi === 27) {
           diachiCN = "Huyện Hòn Đất";
           dtnghenghiep = "0297.841017";
-          sofaxNH = "3841553";
+          sofaxNH = "0297.3841553";
         } else if (user.Madonvi === 28) {
           diachiCN = "Huyện Kiên Hải";
           dtnghenghiep = "0297.830008";
-          sofaxNH = "3830135";
+          sofaxNH = "0297.3830135";
         } else if (user.Madonvi === 36) {
           diachiCN = "Hà Tiên";
           dtnghenghiep = "0297.851888";
-          sofaxNH = "3950995";
+          sofaxNH = "0297.3950995";
         }
         //
         else if (user.Madonvi === 37) {
@@ -1629,7 +1768,7 @@ export default {
         } else if (user.Madonvi === 40) {
           diachiCN = "Ba Hòn";
           dtnghenghiep = "0297.751177";
-          sofaxNH = "3751188";
+          sofaxNH = "0297.3751188";
         }
         //
         else if (user.Madonvi === 29) {
@@ -1639,28 +1778,28 @@ export default {
         } else if (user.Madonvi === 32) {
           diachiCN = "Rạch Sỏi";
           dtnghenghiep = "0297.864063";
-          sofaxNH = "3917898";
+          sofaxNH = "0297.3917898";
         } else if (user.Madonvi === 42) {
           diachiCN = "Mong Thọ - Rạch Sỏi";
           dtnghenghiep = "0297.625256";
-          sofaxNH = "";
+          sofaxNH = "0297.3625256";
         } else if (user.Madonvi === 33) {
           diachiCN = "Lô C11 Số 38-39 đường 3/2 - TPRG - Kiên Giang";
           dtnghenghiep = "0297.876155";
-          sofaxNH = "3923385";
+          sofaxNH = "0297.3923385";
         } else if (user.Madonvi === 2) {
           diachiCN = "166 Nguyễn trung Trực - TPRG - Kiên Giang";
           dtnghenghiep = "0297.863136";
-          sofaxNH = "3863136";
+          sofaxNH = "0297.3863136";
         } else if (user.Madonvi === 34) {
           diachiCN =
             "105 QL80 Ấp Hưng Giang - Xã Mỹ Lâm - Hòn Đất - Kiên Giang";
           dtnghenghiep = "0297.890228";
-          sofaxNH = "3891654";
+          sofaxNH = "0297.3891654";
         } else if (user.Madonvi === 45) {
           diachiCN = "44 KP. Thị Tứ , TT.Sóc Sơn,H.Hòn Đất, T.Kiên Giang";
           dtnghenghiep = "0297.742154";
-          sofaxNH = "";
+          sofaxNH = "0297.3742155";
         }
 
         // 2️⃣ Lấy ngày tháng năm hiện tại
